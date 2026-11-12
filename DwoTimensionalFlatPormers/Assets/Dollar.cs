@@ -3,14 +3,19 @@ using UnityEngine;
 
 public class Dollar : MonoBehaviour
 {
-    [SerializeField] int moneyValue = 1;
+    GameManager gameManager;
 
+
+    private void Start()
+    {
+        gameManager = FindAnyObjectByType<GameManager>();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            moneyValue = moneyValue + 1;
+            gameManager.Scoresuh(1);
             Destroy(gameObject);
         }
     }
