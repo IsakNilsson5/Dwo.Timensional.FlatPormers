@@ -1,7 +1,5 @@
     using UnityEngine;
     using UnityEngine.InputSystem;
-    using System.Collections;
-    using System.Collections.Generic; 
 
 public class JAYYOUGOTTAMOVE : MonoBehaviour
 {
@@ -43,18 +41,7 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     {
         moveVector = context.ReadValue<Vector2>();
     }
-    private void OnDrawGizmosSelected()
-    {
-        if(isGrounded)
-        {
-            Gizmos.color = Color.green;
-        }
-        else
-        {
-            Gizmos.color = Color.red;
-        }
-        Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
-    }
+
     public void FixedUpdate()
     {
         playerorgan.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerorgan.linearVelocity.y);
