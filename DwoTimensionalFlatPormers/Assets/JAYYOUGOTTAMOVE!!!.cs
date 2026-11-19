@@ -13,6 +13,7 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     [SerializeField] Transform groundCheck3;
     Vector2 moveVector;
     Rigidbody2D playerorgan;
+    [SerializeField] int Health = 1;
 
     private void Start()
     {

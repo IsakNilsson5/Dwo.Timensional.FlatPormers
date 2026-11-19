@@ -968,7 +968,8 @@ Transform:
   - {fileID: 6714309668256367398}
   - {fileID: 6469525792710588793}
   - {fileID: 3619214071934191048}
-  - {fileID: 8436811481169860390}
+  - {fileID: 634443847793697181}
+  - {fileID: 6698318568014186861}
   m_Father: {fileID: 8756876539701981519}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1839735485 &5795149654396033380
@@ -1199,6 +1200,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakbles
       objectReference: {fileID: 0}
+    - target: {fileID: 5338706537530589342, guid: 0438f67334eb4a3499dd1b2e39158565, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1209,7 +1214,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4461724299256553184, guid: 0438f67334eb4a3499dd1b2e39158565, type: 3}
   m_PrefabInstance: {fileID: 1139747815649565480}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5259828108101110214
+--- !u!1001 &3617722924112689453
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8852056109460064064}
+    m_Modifications:
+    - target: {fileID: 7722243882266468344, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_Name
+      value: moneyinator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7722243882266468344, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+--- !u!4 &6698318568014186861 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7980817156481069120, guid: 32225cb932b0b824a9bae2e5079ce558, type: 3}
+  m_PrefabInstance: {fileID: 3617722924112689453}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &3829966017774665597
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1269,17 +1340,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Breakbles
       objectReference: {fileID: 0}
+    - target: {fileID: 5338706537530589342, guid: 0438f67334eb4a3499dd1b2e39158565, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0438f67334eb4a3499dd1b2e39158565, type: 3}
---- !u!4 &8436811481169860390 stripped
+--- !u!4 &634443847793697181 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4461724299256553184, guid: 0438f67334eb4a3499dd1b2e39158565, type: 3}
-  m_PrefabInstance: {fileID: 5259828108101110214}
+  m_PrefabInstance: {fileID: 3829966017774665597}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1122856279414550565
+--- !u!114 &338607514903097131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
