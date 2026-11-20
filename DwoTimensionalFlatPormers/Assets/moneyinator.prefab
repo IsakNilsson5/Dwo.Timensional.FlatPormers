@@ -200,3 +200,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GIMMEMONEY
   moneyprefab: {fileID: 0}
+  moneypriviledge: 1
+  block_coin: {fileID: 21300000, guid: beec2b494d2cd3f4a97f20711f422810, type: 3}

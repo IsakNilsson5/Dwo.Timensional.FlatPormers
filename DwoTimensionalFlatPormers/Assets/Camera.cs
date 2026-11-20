@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Camerathing : MonoBehaviour
 {
-    Transform moverTransform;
+    [SerializeField] Transform moverTransform;
     [SerializeField] Vector3 Offset;
+    [SerializeField] float cammovsped = 4;
+    [SerializeField] JAYYOUGOTTAMOVE player;
 
     private void Start()
     {
@@ -13,7 +15,19 @@ public class Camerathing : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = moverTransform.position + Offset;
+        if (player.isGrounded)
+        {
+            transform.position = moverTransform.position + Offset;
+        }
+        else if (player.isGrounded2)
+        { 
+           transform.position = Vector3.Lerp(transform.position, moverTransform.position + Offset, cammovsped * Time.fixedDeltaTime);
+        }
+        else
+         {
+           transform.position = new Vector3(moverTransform.position.x, transform.position.y, transform.position.z);
+         }
+        
     }
 }
 

@@ -7,6 +7,7 @@ TagManager:
   - Background
   - Platform
   - Evil Platform
+  - Evil
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Platform
   - Evil Platform
   - Player
-  - 
+  - Evil
   - 
   - 
   - 
