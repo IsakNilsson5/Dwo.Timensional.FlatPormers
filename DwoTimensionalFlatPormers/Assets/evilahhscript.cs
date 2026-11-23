@@ -5,15 +5,18 @@ public class evilahhscript : MonoBehaviour
     [SerializeField] Rigidbody2D evilorgans;
     [SerializeField] float evilrunspeed;
     [SerializeField] Transform evilturn;
-    [SerializeField] LayerMask groundcheck;
+    [SerializeField] LayerMask groundLayer;
     [SerializeField] bool isgrounded;
+    [SerializeField] Transform groundcheck;
+    Vector2 evilmovevector;
+
     private void Start()
     {
         evilorgans = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
     {
-        evilorgans.linearVelocity = new Vector2(evilrunspeed, evilorgans.linearVelocity.y);
+        evilorgans.linearVelocity = new Vector2(evilmovevector.x * evilrunspeed, evilorgans.linearVelocity.y);
 
         if (!isgrounded)
         {
@@ -24,6 +27,6 @@ public class evilahhscript : MonoBehaviour
     }
     private void Update()
     {
-        isgrounded = Physics2D.OverlapCircle(evilturn.position, 0.1f, groundcheck);
+        isgrounded = Physics2D.OverlapCircle(groundcheck.position, 0.2f, groundLayer);
     }
 }
