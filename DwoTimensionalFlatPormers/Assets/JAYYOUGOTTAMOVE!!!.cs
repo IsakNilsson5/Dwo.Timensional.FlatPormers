@@ -1,5 +1,5 @@
-    using UnityEngine;
-    using UnityEngine.InputSystem;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class JAYYOUGOTTAMOVE : MonoBehaviour
 {
@@ -14,11 +14,11 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     [SerializeField] public bool isGrounded2;
     Vector2 moveVector;
     Rigidbody2D playerorgan;
-    [SerializeField] int Health = 1;
+    [SerializeField] public int Health = 1;
     [SerializeField] Sprite Jumpie;
     [SerializeField] Sprite Runnies;
     [SerializeField] Sprite Idleieie;
-
+    [SerializeField] bool dashpossible;
     private void Start()
     {
         playerorgan = GetComponent<Rigidbody2D>();
@@ -28,6 +28,11 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
         isGrounded2 = Physics2D.OverlapCircle(groundCheck2.position, 0.2f, groundLayer) || Physics2D.OverlapCircle(groundCheck3.position, 0.2f, groundLayer);
+        if (isGrounded)
+        {
+            dashpossible = true;
+            moveSpeed = 7.5f;
+        }
 
         if ((isGrounded || isGrounded2) && moveVector.x == 0)
         {
@@ -37,6 +42,7 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = Jumpie;
         }
+        transform.localScale =new Vector2(Health, Health);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -45,11 +51,11 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
         {
             Debug.Log("Jump");
             Jump();
+            return;
         }
         else
         {
             Debug.Log("bad legs");
-            return;
         }
     }
     public void OnMove(InputAction.CallbackContext context)
@@ -66,6 +72,23 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = Runnies;
         }
     }
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+            if (dashpossible == true && !isGrounded)
+            {
+                Debug.Log("good brains");
+                Dash();
+                return;
+            }
+
+            else
+            {
+                Debug.Log("bad brains");
+                return;
+            }
+
+
+    }
 
     public void FixedUpdate()
     {
@@ -78,5 +101,10 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
         playerorgan.AddForce(Vector2.up* jumpForce, ForceMode2D.Impulse);
         GetComponent<SpriteRenderer>().sprite = Jumpie;
     }    
+    void Dash()
+    {
+        moveSpeed = jumpForce;
+        dashpossible = false;
+    }
 
 }
