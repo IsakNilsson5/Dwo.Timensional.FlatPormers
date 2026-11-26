@@ -32,11 +32,20 @@ public class NewMonoBehaviourScript : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
+        
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            if (player.Health == 2)
+            {
+                gameManager.Scoresuh(1);
+            }
+            else
+            {
+                player.Health = 2;
+            }
+                Destroy(gameObject);
         }
     }
 }
