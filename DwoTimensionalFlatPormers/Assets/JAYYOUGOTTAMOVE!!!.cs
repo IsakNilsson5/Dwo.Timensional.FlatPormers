@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class JAYYOUGOTTAMOVE : MonoBehaviour
 {
@@ -19,9 +20,12 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     [SerializeField] Sprite Runnies;
     [SerializeField] Sprite Idleieie;
     [SerializeField] bool dashpossible;
+    [SerializeField] bool stun;
+    [SerializeField] int bigback;
     private void Start()
     {
         playerorgan = GetComponent<Rigidbody2D>();
+        bigback = 5;
     }
 
     private void Update()
@@ -42,7 +46,7 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
         {
             GetComponent<SpriteRenderer>().sprite = Jumpie;
         }
-        transform.localScale =new Vector2(Health, Health);
+        transform.localScale = new Vector2(Health, Health);
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -74,10 +78,10 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
     }
     public void OnInteract(InputAction.CallbackContext context)
     {
-            if (dashpossible == true && !isGrounded)
+            if (dashpossible == true && !isGrounded && !stun)
             {
                 Debug.Log("good brains");
-                Dash();
+                StartCoroutine(Dash());
                 return;
             }
 
@@ -92,19 +96,41 @@ public class JAYYOUGOTTAMOVE : MonoBehaviour
 
     public void FixedUpdate()
     {
-        playerorgan.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerorgan.linearVelocity.y);
-
+        if (!stun)
+        {
+            playerorgan.linearVelocity = new Vector2(moveVector.x * moveSpeed, playerorgan.linearVelocity.y);
+        }
     }
     void Jump() 
    {
         playerorgan.linearVelocityY = 0;
         playerorgan.AddForce(Vector2.up* jumpForce, ForceMode2D.Impulse);
         GetComponent<SpriteRenderer>().sprite = Jumpie;
-    }    
-    void Dash()
+    }
+    IEnumerator Dash()
     {
-        moveSpeed = jumpForce;
+        stun = true;
         dashpossible = false;
+        playerorgan.linearVelocity = Vector2.zero;
+        playerorgan.gravityScale = 0;
+        yield return new WaitForSeconds(0.1f);
+        playerorgan.linearVelocityX = transform.right.x * 100;
+        if (moveVector.x > 0)
+        {
+            playerorgan.linearVelocityX = transform.right.x * 100;
+        }
+        else if (moveVector.x < 0)
+        {
+            playerorgan.linearVelocityX = transform.right.x * -100;
+        }
+        yield return new WaitForSeconds(0.1f);
+        playerorgan.linearVelocity = Vector2.zero;
+        playerorgan.gravityScale = 0;
+        yield return new WaitForSeconds(0.1f);
+        playerorgan.gravityScale = bigback;
+        stun = false;
+
+
     }
 
 }

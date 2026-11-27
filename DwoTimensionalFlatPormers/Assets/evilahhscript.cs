@@ -39,10 +39,6 @@ public class evilahhscript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            if (player.Health == 2)
-            {
-
-            }
             Destroy(gameObject);
         }
     }
